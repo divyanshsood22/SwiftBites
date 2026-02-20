@@ -1,8 +1,6 @@
 # 🌐SwiftBites
 SwiftBites is a food delivery system built to help small restaurants run their own online ordering platform without relying on third-party services.
 
-<br>
-
 > [!NOTE]
 > Project is under development, new features will be added continuously.
 
