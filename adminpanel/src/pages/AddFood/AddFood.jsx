@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 const AddFood = () => {
     const [image, setImage] = useState(false);
+    const [hover, setHover] = useState(false);
     const [data, setData] = useState({
         name:'',
         description: '',
@@ -43,18 +44,29 @@ const AddFood = () => {
         <form onSubmit={onSubmitHandler}>
         <div className="mb-3">
             <label htmlFor="image" className="form-label">
-                <img src={image ? URL.createObjectURL(image): assets.upload} alt="" width={98} />
+                <img
+                    src={image ? URL.createObjectURL(image) : assets.upload}
+                    alt=""
+                    width={98}
+                    style={{
+                        cursor: 'pointer',
+                        transition: 'transform 0.2s ease',
+                        transform: hover ? 'scale(1.1)' : 'scale(1)'
+                    }}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
+                />
             </label>
             <input type="file" className="form-control" id="image" hidden onChange={(e) => setImage(e.target.files[0])} />
           </div>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">Name</label>
-            <input type="text" placeholder='Chicken Biryani' className="form-control" id="name" required name='name' onChange={onChangeHandler} value={data.name}/>
+            <input type="text" placeholder='Enter Product Name' className="form-control" id="name" required name='name' onChange={onChangeHandler} value={data.name}/>
           </div>
           
           <div className="mb-3">
             <label htmlFor="description" className="form-label">Description</label>
-            <textarea className="form-control" placeholder='Write content here...' id="description" rows="5" required name='description' onChange={onChangeHandler} value={data.description}></textarea>
+            <textarea className="form-control" placeholder='Enter Product Description' id="description" rows="5" required name='description' onChange={onChangeHandler} value={data.description}></textarea>
           </div>
           <div className="mb-3">
             <label htmlFor="category" className="form-label">Category</label>
@@ -70,7 +82,7 @@ const AddFood = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="price" className="form-label">Price</label>
-            <input type="number" name="price" id="price" placeholder='&#8377;200' className='form-control' onChange={onChangeHandler} value={data.price} />
+            <input type="number" name="price" id="price" placeholder='Enter Price' className='form-control' onChange={onChangeHandler} value={data.price} />
           </div>
           <button type="submit" className="btn btn-primary">Save</button>
         </form>
