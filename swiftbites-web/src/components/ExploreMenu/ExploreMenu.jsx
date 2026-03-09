@@ -19,7 +19,7 @@ const ExploreMenu = ({ category, setCategory }) => {
   return (
     <div className="explore-menu position-relative">
       <h1 className="d-flex align-items-center justify-content-between">
-        Explore Our Menu
+        Explore Menu
         <div className="d-flex">
           <i
             className="bi bi-arrow-left-circle scroll-icon"
@@ -31,7 +31,7 @@ const ExploreMenu = ({ category, setCategory }) => {
           ></i>
         </div>
       </h1>
-      <p>Explore curated lists of dishes from top categories</p>
+      <p>Give a try to the wide range of delicious dishes</p>
       <div
         className="d-flex justify-content-between gap-4 overflow-auto explore-menu-list"
         ref={menuRef}
